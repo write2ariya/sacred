@@ -1,0 +1,23 @@
+{
+  "name": "tptk",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "_comment_dev_original": "astro dev",
+    "dev": "npx --node-options='--max-old-space-size=8192' astro dev",
+    "dev:normal": "astro dev",
+    "_comment_start_original": "astro dev", 
+    "start": "npx --node-options='--max-old-space-size=8192' astro dev",
+    "_comment_build_original": "astro build",
+    "build": "npx --node-options='--max-old-space-size=8192' astro build",
+    "build:normal": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.35.2",
+    "astro": "^5.13.5",
+    "sharp": "^0.34.2",
+    "sqlite3": "^5.1.7"
+  }
+}

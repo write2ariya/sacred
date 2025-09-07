@@ -1,0 +1,129 @@
+/* ===== 1) ประกาศฟอนต์ (ตัวอย่าง self-host) ===== */
+/* — Burmese / Myanmar — */
+@font-face {
+    font-family: "Padauk";
+    src: url("/src/assets/fonts/Padauk/Padauk-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Noto Sans Myanmar";
+    src: url("/src/assets/fonts/Noto_Sans_Myanmar/NotoSansMyanmar-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  /* — Thai — */
+  @font-face {
+    font-family: "Sarabun";
+    src: url("/src/assets/fonts/Sarabun/Sarabun-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+
+  /* — Sinhala — */
+  @font-face {
+    font-family: "Noto Sans Sinhala";
+    src: url("/src/assets/fonts/Noto_Sans_Sinhala/static/NotoSansSinhala-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  /* — Roman (Latin with Pāli diacritics) — */
+  @font-face {
+    font-family: "Gentium Plus";
+    src: url("/src/assets/fonts/Gentium_Plus/GentiumPlus-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Charis SIL";
+    src: url("/src/assets/fonts/Charis_SIL/CharisSIL-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  /* — Devanagari — */
+  @font-face {
+    font-family: "Noto Sans Devanagari";
+    src: url("/src/assets/fonts/Noto_Sans_Devanagari/static/NotoSansDevanagari-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  /* — Khmer — */
+  @font-face {
+    font-family: "Noto Sans Khmer";
+    src: url("/src/assets/fonts/Noto_Sans_Khmer/static/NotoSansKhmer-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  /* — Lao — */
+  @font-face {
+    font-family: "Phetsarath";
+    src: url("/src/assets/fonts/Phetsarath/Phetsarath-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+  /* — Lanna / Tai Tham — */
+  @font-face {
+    font-family: "Noto Sans Tai Tham";
+    src: url("/src/assets/fonts/Noto_Sans_Tai_Tham/static/NotoSansTaiTham-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Pali Khomttabun";
+    src: url("/src/assets/fonts/SOV_Tham/Pali_Khottabun.ttf") format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Pali Tilok";
+    src: url("/src/assets/fonts/SOV_Tham/Pali_Tilok.ttf") format("truetype");
+    font-display: swap;
+  }
+  /* (ถ้ามีฟอนต์ท้องถิ่นอย่าง Lanna Alif/Hariphunchai ก็เพิ่มเป็น fallback ได้) */
+  
+  
+  /* ===== 2) ค่าเริ่มต้นและฟีเจอร์ช่วยการวางสระ-วรรณยุกต์ ===== */
+  :root {
+    /* ใช้ตัวแปรให้ทุกส่วนของธีมดึงฟอนต์จากนี่ (Starlight จะอ้าง --sl-font) */
+    --sl-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
+               Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  }
+  
+  html, body {
+    font-family: var(--sl-font);
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    /* เปิดฟีเจอร์คอมไบน์เครื่องหมาย (สำคัญกับ Pāli ที่มีเครื่องหมายผสม) */
+    font-feature-settings: "ccmp" 1, "mark" 1, "mkmk" 1;
+  }
+  
+  /* ===== 3) สลับฟอนต์ตาม locale/lang ===== */
+/* ใช้ custom locale codes ตรงกับที่ตั้งไว้ใน astro.config.mjs */
+
+:lang(my) {
+    --sl-font: "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* --sl-font: "Padauk", "Noto Sans Myanmar", "Noto Sans", ui-sans-serif, system-ui, sans-serif; */
+}
+:lang(th) {
+    --sl-font: "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+}
+:lang(si) {
+    --sl-font: "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* --sl-font: "Noto Sans Sinhala", "Noto Sans", ui-sans-serif, system-ui, sans-serif; */
+}
+:lang(en) {
+    --sl-font: "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* --sl-font: "Gentium Plus", "Charis SIL", "Noto Serif", "Noto Sans", serif; */
+}
+:lang(hi) {
+    --sl-font: "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* --sl-font: "Noto Sans Devanagari", "Noto Sans", ui-sans-serif, system-ui, sans-serif; */
+}
+:lang(kh) {
+    --sl-font: "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* --sl-font: "Noto Sans Khmer", "Noto Sans", ui-sans-serif, system-ui, sans-serif; */
+}
+:lang(lo) {
+    --sl-font: "Phetsarath", "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* --sl-font: "Phetsarath", "Noto Sans Lao","Noto Sans", ui-sans-serif, system-ui, sans-serif; */
+}
+:lang(ln) {
+    --sl-font: "Sarabun", "Noto Sans Thai", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* --sl-font: "Noto Sans Tai Tham", "Pali Tilok", "Pali Khomttabun", "Noto Sans", ui-sans-serif, system-ui, sans-serif; */
+} 
+  
